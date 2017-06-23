@@ -153,16 +153,16 @@ You get this:
 
 ## Next Steps
 
-***self_init***: 
+***self_init:*** 
 - Implement the possibility to pass defaults;
 - Specify which parameters will get an attr_reader, attr_accessor or none;
 - Specify wich parameters on attr_reader are to consider private;
 
-***selfie***: 
+***selfie:***
 - Allow the possibility to declare all selfies at the top (if possible);
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
 
-***more?***:
+***more?:***
 - If you also often write repetitive bolierplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
 
 ## Development
