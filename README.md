@@ -108,11 +108,12 @@ class Search
 end
 ```
 
-If preferred, more methods can be 'selfied' in one liner, as long as the line is defined after them
+If preferred, more methods can be 'selfied' in one liner:
 
 ```ruby
 class Search
   ...
+  selfie :execute!, :next
 
   def execute!
     # does something
@@ -121,9 +122,33 @@ class Search
   def next
     # does something else
   end
-
-  selfie :execute!, :next
 end
+```
+
+## TL;DR
+
+You write this:
+```ruby
+class Rectangle
+  self_init :width, :height
+  selfie :area, :perimeter
+
+  def area
+    width * height
+  end
+
+  def perimeter
+    (width + height) * 2
+  end
+end
+```
+
+You get this:
+```ruby
+>> Rectangle.area(8, 4)
+=> 32
+>> Rectangle.perimeter(5, 3)
+=> 16
 ```
 
 ## Next Steps
