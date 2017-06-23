@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
 
 # Selfies
-"A collection of macros for quicker development"
+**A collection of macros for quicker development**
 
 Another day at work, or on your personal project, and you need to create yet another class, which comes with the user boilerplate:
 - The initialiser needs to be defined, with n parameters
@@ -11,6 +11,10 @@ Another day at work, or on your personal project, and you need to create yet ano
 - more?
 
 This gets boring with the years. So boring that someone might decide to write some macros to reduce the boilerplate.
+
+## Disclaimer
+In this project you will likely read me using both ```initialize``` and ```initialise```. I'm Italian, I learnt to code from American books and now live in UK, to me they both make sense. As a rule of thumb, it's the ```ize``` form in code and ```ise``` form everywhere else. But might mix them so bear with me. Thanks!
+
 
 ## Installation
 
@@ -34,7 +38,7 @@ $ gem install selfies
 
 ## Usage
 
-*** self_init *** can be used to automatically generate an initialiser for your class
+***self_init***: can be used to automatically generate an initialiser for your class
 
 This code:
 ```ruby
@@ -43,7 +47,7 @@ class Search
 end
 ```
 
-Is equivalent to
+Is equivalent to:
 ```ruby
 class Search
   attr_reader :term, :page, :limit
@@ -57,7 +61,8 @@ end
 ```
 
 ## Next Steps
-*** self_init ***
+
+***self_init***: 
 - Implement the possibility to pass defaults
 - Specify which parameters will get an attr_reader, attr_accessor or none
 - Specify wich parameters on attr_reader are to consider private
