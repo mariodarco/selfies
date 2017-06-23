@@ -1,5 +1,9 @@
-require "selfies/version"
+require 'kernel'
+require 'selfies/self_init'
+require 'selfies/version'
 
 module Selfies
-  # Your code goes here...
+  def self.generate_initializer(class_name, *variable_names)
+    SelfInit.generate(class_name, *variable_names)
+  end
 end
