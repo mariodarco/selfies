@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/mariodarco/selfiesi/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
+[![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
 
 # Selfies
 
