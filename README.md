@@ -1,8 +1,16 @@
 [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
 
 # Selfies
+"A collection of macros for quicker development"
 
-A collection of macros for quicker development.
+Another day at work, or on your personal project, and you need to create yet another class, which comes with the user boilerplate:
+- The initialiser needs to be defined, with n parameters
+- Inside that, the usual ```@param = param```, multiplied for how many params you've got there
+- Then it's the turn of the attr_reader for those parameters
+- Then you are likely to need a class method that does nothing else than initialising the class and calling an instance method of the same name
+- more?
+
+This gets boring with the years. So boring that someone might decide to write some macros to reduce the boilerplate.
 
 ## Installation
 
@@ -14,15 +22,45 @@ gem 'selfies'
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install selfies
+```
+$ gem install selfies
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+*** self_init *** can be used to automatically generate an initialiser for your class
+
+This code:
+```ruby
+class Search
+  self_init :term, :page, :limit
+end
+```
+
+Is equivalent to
+```ruby
+class Search
+  attr_reader :term, :page, :limit
+
+  def initialize(term, page, limit)
+    @term = term
+    @page = page
+    @limit = limit
+  end
+end
+```
+
+## Next Steps
+*** self_init ***
+- Implement the possibility to pass defaults
+- Specify which parameters will get an attr_reader, attr_accessor or none
+- Specify wich parameters on attr_reader are to consider private
 
 ## Development
 
