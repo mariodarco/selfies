@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
 
+[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies)
+
 # Selfies
 **A collection of macros for quicker development**
 
