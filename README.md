@@ -60,12 +60,85 @@ class Search
 end
 ```
 
+***selfie***: can be used to automatically create a class method that reference to the instance method of the same class
+
+This code:
+```ruby
+class Search
+  attr_reader :term, :page, :limit
+
+  def initialize(term, page, limit)
+    @term = term
+    @page = page
+    @limit = limit
+  end
+
+  def self.execute!
+    new(term, page, limit).execute!
+  end
+
+  def self.next
+    new(term, page, limit).next
+  end
+
+  def execute!
+    # does something
+  end
+
+  def next
+    # does something else
+  end
+end
+```
+
+Can be written as:
+```ruby
+class Search
+  self_init :term, :page, :limit
+
+  def execute!
+    # does something
+  end
+  selfie :execute!
+
+  def next
+    # does something else
+  end
+  selfie :next
+end
+```
+
+If preferred, more methods can be 'selfied' in one liner, as long as the line is defined after them
+
+```ruby
+class Search
+  ...
+
+  def execute!
+    # does something
+  end
+
+  def next
+    # does something else
+  end
+
+  selfie :execute!, :next
+end
+```
+
 ## Next Steps
 
 ***self_init***: 
-- Implement the possibility to pass defaults
-- Specify which parameters will get an attr_reader, attr_accessor or none
-- Specify wich parameters on attr_reader are to consider private
+- Implement the possibility to pass defaults;
+- Specify which parameters will get an attr_reader, attr_accessor or none;
+- Specify wich parameters on attr_reader are to consider private;
+
+***selfie***: 
+- Allow the possibility to declare all selfies at the top (if possible);
+- Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
+
+***more?***:
+- If you also often write repetitive bolierplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
 
 ## Development
 
