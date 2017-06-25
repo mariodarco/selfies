@@ -175,7 +175,7 @@ You get this:
 
 ## Next Steps
 
-***attr_reader_init:*** and ***attr_accessor_init:***
+***attr_reader_init*** and ***attr_accessor_init:***
 - Implement the possibility to pass defaults;
 
 ***selfie:***
