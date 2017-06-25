@@ -116,7 +116,7 @@ end
 Can be written as:
 ```ruby
 class Search
-  self_init :term, :page, :limit
+  attr_reader_init :term, :page, :limit
 
   def execute!
     # does something
@@ -152,7 +152,7 @@ end
 You write this:
 ```ruby
 class Rectangle
-  self_init :width, :height
+  attr_accessor_init :width, :height
   selfie :area, :perimeter
 
   def area
@@ -175,7 +175,7 @@ You get this:
 
 ## Next Steps
 
-***self_init:*** 
+***attr_reader_init:*** and ***attr_accessor_init:***
 - Implement the possibility to pass defaults;
 
 ***selfie:***
