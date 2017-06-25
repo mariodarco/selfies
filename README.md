@@ -159,7 +159,6 @@ You get this:
 - Specify wich parameters on attr_reader are to consider private;
 
 ***selfie:***
-- Allow the possibility to declare all selfies at the top (if possible);
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
 
 ***more?:***
