@@ -61,6 +61,7 @@ end
 ```
 
 ***attr_accessor_init***: same as ```attr_reader_init```, but generates accessors for the given attributes
+
 This code:
 ```ruby
 class Search
