@@ -38,12 +38,12 @@ $ gem install selfies
 
 ## Usage
 
-***self_init***: can be used to automatically generate an initialiser for your class
+***attr_reader_init***: can be used to automatically generate an initialiser for your class
 
 This code:
 ```ruby
 class Search
-  self_init :term, :page, :limit
+  attr_reader_init :term, :page, :limit
 end
 ```
 
@@ -51,6 +51,27 @@ Is equivalent to:
 ```ruby
 class Search
   attr_reader :term, :page, :limit
+
+  def initialize(term, page, limit)
+    @term = term
+    @page = page
+    @limit = limit
+  end
+end
+```
+
+***attr_accessor_init***: same as ```attr_reader_init```, but generates accessors for the given attributes
+This code:
+```ruby
+class Search
+  attr_accessor_init :term, :page, :limit
+end
+```
+
+Is equivalent to:
+```ruby
+class Search
+  attr_accessor :term, :page, :limit
 
   def initialize(term, page, limit)
     @term = term
@@ -155,8 +176,6 @@ You get this:
 
 ***self_init:*** 
 - Implement the possibility to pass defaults;
-- Specify which parameters will get an attr_reader, attr_accessor or none;
-- Specify wich parameters on attr_reader are to consider private;
 
 ***selfie:***
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
