@@ -12,6 +12,45 @@ Another day at work, or on your personal project, and you need to create yet ano
 
 This gets boring with the years. So boring that someone might decide to write some macros to reduce the boilerplate.
 
+## TL;DR
+
+You add this:
+```ruby
+gem 'selfies'
+```
+
+You write this:
+```ruby
+class Rectangle
+  attr_accessor_init :width, :height, scale: 100
+  selfie :area, :perimeter
+
+  def area
+    proportion(width * height)
+  end
+
+  def perimeter
+    proportion((width + height) * 2)
+  end
+
+  private
+
+  def proportion(value)
+    value.to_f / 100 * scale
+  end
+end
+```
+
+You get this:
+```ruby
+>> Rectangle.area(8, 4)
+=> 32.0
+>> Rectangle.perimeter(5, 3)
+=> 16.0
+>> Rectangle.perimeter(5, 3, 50)
+=> 8.0
+```
+
 ## Disclaimer
 In this project you will likely read me using both ```initialize``` and ```initialise```. I'm Italian, I learnt to code from American books and now live in UK, to me they both make sense. As a rule of thumb, it's the ```ize``` form in code and ```ise``` form everywhere else. But might mix them so bear with me. Thanks!
 
@@ -60,6 +99,34 @@ class Search
 end
 ```
 
+It is possible to specify a default for the last argument only:
+
+This code:
+```ruby
+class Search
+  attr_reader_init :term, :page, limit: 5
+end
+```
+
+Is equivalent to:
+```ruby
+class Search
+  attr_reader :term, :page, :limit
+
+  def initialize(term, page, limit = 5)
+    @term = term
+    @page = page
+    @limit = limit
+  end
+end
+```
+
+```ruby
+>> search = Search.new('foo', 1)
+>> search.limit
+=> 5
+```
+
 ***attr_accessor_init***: same as ```attr_reader_init```, but generates accessors for the given attributes
 
 This code:
@@ -80,34 +147,6 @@ class Search
     @limit = limit
   end
 end
-```
-
-It is possible to specify a default for the last argument only:
-
-This code:
-```ruby
-class Search
-  attr_accessor_init :term, :page, limit: 5
-end
-```
-
-Is equivalent to:
-```ruby
-class Search
-  attr_accessor :term, :page, :limit
-
-  def initialize(term, page, limit = 5)
-    @term = term
-    @page = page
-    @limit = limit
-  end
-end
-```
-
-```ruby
->> search = Search.new('foo', 1)
->> search.limit
-=> 5
 ```
 
 ***selfie***: can be used to automatically create a class method that reference to the instance method of the same class
@@ -172,32 +211,6 @@ class Search
     # does something else
   end
 end
-```
-
-## TL;DR
-
-You write this:
-```ruby
-class Rectangle
-  attr_accessor_init :width, :height
-  selfie :area, :perimeter
-
-  def area
-    width * height
-  end
-
-  def perimeter
-    (width + height) * 2
-  end
-end
-```
-
-You get this:
-```ruby
->> Rectangle.area(8, 4)
-=> 32
->> Rectangle.perimeter(5, 3)
-=> 16
 ```
 
 ## Next Steps
