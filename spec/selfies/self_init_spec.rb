@@ -130,5 +130,60 @@ RSpec.describe Selfies::SelfInit do
         end
       end
     end
+
+    context 'when last variable is :args' do
+      let(:instance) { Car.new(:large, :red, :expensive, :german) }
+      let(:variable_names) { [:type, :args] }
+
+      before { subject }
+
+      it 'generates an initializer method for those attributes' do
+        expect(instance).to be_a Car
+      end
+
+      it 'generates readers for the given attributes' do
+        expect(instance.type).to eql :large
+        expect(instance.args).to eql [:red, :expensive, :german]
+      end
+
+      context 'when given arguments do not match variable names' do
+        context 'by one more' do
+          before { subject }
+
+          let(:instance) { Car.new(:large, :red, :expensive) }
+
+          it 'does not raise error' do
+            expect { instance }.to_not raise_error
+          end
+        end
+
+        context 'by one less' do
+          let(:instance) { Car.new(:large) }
+
+          let(:expected_message) do
+            'wrong number of arguments (given 1, expected 2)'
+          end
+
+          it 'raises an ArgumentError' do
+            expect { instance }.to raise_error(ArgumentError, expected_message)
+          end
+        end
+      end
+    end
+
+    context 'when the only variable name is args' do
+      let(:instance) { Car.new(:small, :red) }
+      let(:variable_names) { [:args] }
+
+      before { subject }
+
+      it 'generates an initializer method for those attributes' do
+        expect(instance).to be_a Car
+      end
+
+      it 'generates readers for the given attributes' do
+        expect(instance.args).to eql [:small, :red]
+      end
+    end
   end
 end

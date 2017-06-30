@@ -18,16 +18,24 @@ module Selfies
 
           variables.each_with_index do |variable, index|
             variable_name, default = decouple(variable)
-            instance_variable_set("@#{variable_name}", args[index] || default)
+            if variable_name == :args
+              instance_variable_set("@#{variable_name}", args[index..-1] || default)
+            else
+              instance_variable_set("@#{variable_name}", args[index] || default)
+            end
           end
         end
 
         private_class_method
 
         define_method(:correct_argument_count?) do |variables, expected, given|
+
           correct_argument_count = given == expected
           if variables.last.is_a? Hash
             correct_argument_count ||= given == expected - 1
+          elsif variables.last == :args
+            at_least = variables[0..variables.index(:args)].count
+            correct_argument_count ||= given >= at_least
           end
 
           correct_argument_count

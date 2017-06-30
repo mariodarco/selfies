@@ -127,6 +127,34 @@ end
 => 5
 ```
 
+You can use any variable name that would make for a valid Ruby variable;
+Only exception is ```:args``` which is used by ```selfies``` to define a splat operator:
+
+This code:
+```ruby
+class Search
+  attr_reader_init :term, :args
+end
+```
+
+Is equivalent to:
+```ruby
+class Search
+  attr_reader :term, :args
+
+  def initialize(term, *args)
+    @term = term
+    @args = args
+  end
+end
+```
+
+```ruby
+>> search = Search.new('foo', 2, 10)
+>> search.args
+=> [2, 10]
+```
+
 ***attr_accessor_init***: same as ```attr_reader_init```, but generates accessors for the given attributes
 
 This code:
@@ -216,7 +244,7 @@ end
 ## Next Steps
 
 ***attr_reader_init*** and ***attr_accessor_init:***
-- Implement the possibility to pass indefinite number of arguments;
+- Improve message when raising ArgumentError;
 
 ***selfie:***
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
