@@ -107,5 +107,28 @@ RSpec.describe Selfies::SelfInit do
         end
       end
     end
+
+    context 'when the only variable name has a default' do
+      let(:instance) { Car.new(:red) }
+      let(:variable_names) { [{ colour: :blue }] }
+
+      before { subject }
+
+      it 'generates an initializer method for those attributes' do
+        expect(instance).to be_a Car
+      end
+
+      it 'generates readers for the given attributes' do
+        expect(instance.colour).to eql :red
+      end
+
+      context 'and the object is then initialised without that parameter' do
+        let(:instance) { Car.new }
+
+        it 'assign default to the last attribute' do
+          expect(instance.colour).to eql :blue
+        end
+      end
+    end
   end
 end
