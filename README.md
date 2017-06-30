@@ -249,6 +249,9 @@ end
 ***selfie:***
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
 
+***command line:***
+- Write a command that can initialize a whole class, from creating the file to stub the initial setup (idea by Luke Hill)
+
 ***more?:***
 - If you also often write repetitive bolierplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
 
