@@ -82,6 +82,34 @@ class Search
 end
 ```
 
+It is possible to specify a default for the last argument only:
+
+This code:
+```ruby
+class Search
+  attr_accessor_init :term, :page, limit: 5
+end
+```
+
+Is equivalent to:
+```ruby
+class Search
+  attr_accessor :term, :page, :limit
+
+  def initialize(term, page, limit = 5)
+    @term = term
+    @page = page
+    @limit = limit
+  end
+end
+```
+
+```ruby
+>> search = Search.new('foo', 1)
+>> search.limit
+=> 5
+```
+
 ***selfie***: can be used to automatically create a class method that reference to the instance method of the same class
 
 This code:
@@ -131,7 +159,6 @@ end
 ```
 
 If preferred, more methods can be 'selfied' in one liner:
-
 ```ruby
 class Search
   ...
@@ -176,7 +203,7 @@ You get this:
 ## Next Steps
 
 ***attr_reader_init*** and ***attr_accessor_init:***
-- Implement the possibility to pass defaults;
+- Implement the possibility to pass indefinite number of arguments;
 
 ***selfie:***
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
