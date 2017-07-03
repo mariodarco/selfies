@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Selfies::Selfie do
   describe '.generate' do
     subject { described_class.generate(my_rectangle_class, *method_names) }
-
+    let(:method_names) { %i[area perimeter] }
     let(:my_rectangle_class) do
       # Basic class with only instance methods
       class Rectangle
@@ -19,8 +19,6 @@ RSpec.describe Selfies::Selfie do
       end
       Rectangle
     end
-
-    let(:method_names) { %i[area perimeter] }
 
     before { subject }
 

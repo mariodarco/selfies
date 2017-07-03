@@ -32,7 +32,7 @@ RSpec.describe Selfies do
       described_class.generate_class_methods(my_car_class, *method_names)
     end
 
-    let(:method_names) { %i[start! :stop!] }
+    let(:method_names) { %i[start! stop!] }
 
     it 'delegates the generation to Selfie' do
       expect(Selfies::Selfie)

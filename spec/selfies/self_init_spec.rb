@@ -2,7 +2,9 @@ require 'spec_helper'
 
 RSpec.describe Selfies::SelfInit do
   describe '.generate' do
-    subject { described_class.generate(my_car_class, accessor, *variable_names) }
+    subject do
+      described_class.generate(my_car_class, accessor, *variable_names)
+    end
 
     let(:accessor) { false }
 
@@ -133,7 +135,7 @@ RSpec.describe Selfies::SelfInit do
 
     context 'when last variable is :args' do
       let(:instance) { Car.new(:large, :red, :expensive, :german) }
-      let(:variable_names) { [:type, :args] }
+      let(:variable_names) { %i[type args] }
 
       before { subject }
 
@@ -143,7 +145,7 @@ RSpec.describe Selfies::SelfInit do
 
       it 'generates readers for the given attributes' do
         expect(instance.type).to eql :large
-        expect(instance.args).to eql [:red, :expensive, :german]
+        expect(instance.args).to eql %i[red expensive german]
       end
 
       context 'when given arguments do not match variable names' do
@@ -182,7 +184,7 @@ RSpec.describe Selfies::SelfInit do
       end
 
       it 'generates readers for the given attributes' do
-        expect(instance.args).to eql [:small, :red]
+        expect(instance.args).to eql %i[small red]
       end
     end
   end
