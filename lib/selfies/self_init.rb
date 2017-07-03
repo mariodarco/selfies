@@ -5,36 +5,35 @@ module Selfies
 
       class_name.class_eval do
         variable_names = SelfInit.variable_names(variables)
-        if accessor
-          attr_accessor *variable_names
-        else
-          attr_reader *variable_names
-        end
+
+        SelfInit.access_variables(class_name, accessor, variable_names)
 
         define_method(:initialize) do |*args|
-          unless correct_argument_count?(variables, variable_names.count, args.count)
-            raise ArgumentError, "wrong number of arguments (given #{args.count}, expected #{variable_names.count})"
-          end
+          argument_count(variables, variable_names.count, args.count)
 
           variables.each_with_index do |variable, index|
             variable_name, default = decouple(variable)
-            if variable_name == :args
-              instance_variable_set("@#{variable_name}", args[index..-1] || default)
-            else
-              instance_variable_set("@#{variable_name}", args[index] || default)
-            end
+            value = variable_name == :args ? args[index..-1] : args[index]
+            instance_variable_set("@#{variable_name}", value || default)
           end
         end
 
         private_class_method
 
-        define_method(:correct_argument_count?) do |variables, expected, given|
+        define_method(:argument_count) do |all_variables, expected, given|
+          unless correct_argument_count?(all_variables, expected, given)
+            raise ArgumentError,
+                  "wrong number of arguments (given #{given}, expected #{expected})"
+          end
+        end
 
+        define_method(:correct_argument_count?) do |all_variables, expected, given|
+          final_variable = all_variables.last
           correct_argument_count = given == expected
-          if variables.last.is_a? Hash
+          if final_variable.is_a? Hash
             correct_argument_count ||= given == expected - 1
-          elsif variables.last == :args
-            at_least = variables[0..variables.index(:args)].count
+          elsif final_variable == :args
+            at_least = all_variables[0..all_variables.index(:args)].count
             correct_argument_count ||= given >= at_least
           end
 
@@ -42,7 +41,7 @@ module Selfies
         end
 
         define_method(:decouple) do |variable|
-          return [variable, nil] if !variable.is_a? Hash
+          return [variable, nil] unless variable.is_a? Hash
 
           variable.keys + variable.values
         end
@@ -50,6 +49,13 @@ module Selfies
     end
 
     private_class_method
+
+    def self.access_variables(class_name, accessor, variable_names)
+      class_name.send(
+        (accessor ? :attr_accessor : :attr_reader),
+        *(variable_names)
+      )
+    end
 
     def self.variable_names(variables)
       variables.collect do |variable|
