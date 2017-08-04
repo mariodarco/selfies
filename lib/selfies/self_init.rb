@@ -18,8 +18,6 @@ module Selfies
           end
         end
 
-        private_class_method
-
         define_method(:argument_count) do |all_variables, expected, given|
           unless correct_argument_count?(all_variables, expected, given)
             raise ArgumentError,
@@ -47,8 +45,6 @@ module Selfies
         end
       end
     end
-
-    private_class_method
 
     def self.access_variables(class_name, accessor, variable_names)
       class_name.send(

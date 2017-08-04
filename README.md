@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![Dependency Status](https://gemnasium.com/badges/github.com/mariodarco/selfies.svg)](https://gemnasium.com/github.com/mariodarco/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
+[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![Dependency Status](https://gemnasium.com/badges/github.com/mariodarco/selfies.svg)](https://gemnasium.com/github.com/mariodarco/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master) [![Coverage Status](https://coveralls.io/repos/github/mariodarco/selfies/badge.svg?branch=master)](https://coveralls.io/github/mariodarco/selfies?branch=master)
 
 # Selfies
 **A collection of macros for quicker development**
