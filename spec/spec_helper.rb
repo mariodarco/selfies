@@ -1,12 +1,5 @@
 require 'bundler/setup'
 require 'selfies'
-require 'simplecov'
-require 'coveralls'
-
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
-  add_group 'Library', 'lib'
-end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
