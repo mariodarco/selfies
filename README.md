@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![Dependency Status](https://gemnasium.com/badges/github.com/mariodarco/selfies.svg)](https://gemnasium.com/github.com/mariodarco/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master)
+[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![Dependency Status](https://gemnasium.com/badges/github.com/mariodarco/selfies.svg)](https://gemnasium.com/github.com/mariodarco/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master) [![Maintainability](https://api.codeclimate.com/v1/badges/fe208e3abde2e2937ac7/maintainability)](https://codeclimate.com/github/mariodarco/selfies/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/fe208e3abde2e2937ac7/test_coverage)](https://codeclimate.com/github/mariodarco/selfies/test_coverage)
 
 # Selfies
 **A collection of macros for quicker development**
@@ -250,7 +250,7 @@ end
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
 
 ***command line:***
-- Write a command that can initialize a whole class, from creating the file to stub the initial setup (idea by Luke Hill)
+- Write a command that can initialize a whole class, from creating the file to stub the initial setup;
 
 ***more?:***
 - If you also often write repetitive bolierplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
