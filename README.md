@@ -259,7 +259,7 @@ end
 
 Ruby version:
 ```
-2.4.2
+2.4.3
 ```
 
 Fork the project, clone the repository and bundle:
