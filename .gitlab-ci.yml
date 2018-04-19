@@ -1,6 +1,5 @@
 image: "ruby:2.5.1"
 
-# Cache gems in between builds
 cache:
   paths:
     - vendor/ruby
