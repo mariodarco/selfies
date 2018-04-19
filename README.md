@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) ![Build Status](https://gitlab.com/mariodarco/selfies/badges/master/build.svg)
+![Gem Version](https://badge.fury.io/rb/selfies.svg) ![Build Status](https://gitlab.com/mariodarco/selfies/badges/master/build.svg)
 
 # Selfies
 **A collection of macros for quicker development**
