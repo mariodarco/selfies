@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'kernel'
 require 'selfies/self_init'
 require 'selfies/selfie'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Selfies
   # Generates a class method for any described instance methods.
   class Selfie

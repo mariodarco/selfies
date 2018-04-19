@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Selfies
+  # Generates an accessor or reader for each passed variable
   class SelfInit
     def self.generate(class_name, accessor, *variables)
       return false unless variables.any?
@@ -9,14 +12,24 @@ module Selfies
         SelfInit.access_variables(class_name, accessor, variable_names)
 
         define_method(:initialize) do |*args|
-          SelfInit.argument_guard(variables, variable_names.count, args.count)
+          SelfInit.argument_guard(variables, [variable_names.count, args.count])
 
           variables.each_with_index do |variable, index|
             variable_name, default = SelfInit.decouple(variable)
-            value = variable_name == :args ? args[index..-1] : args[index]
-            instance_variable_set("@#{variable_name}", value || default)
+
+            instance_variable_set(
+              "@#{variable_name}", SelfInit.get_value(variable_name, args, index) || default
+            )
           end
         end
+      end
+    end
+
+    def self.get_value(variable_name, args, index)
+      if variable_name == :args
+        args[index..-1]
+      else
+        args[index]
       end
     end
 
@@ -27,16 +40,12 @@ module Selfies
       )
     end
 
-    def self.argument_guard(all_variables, expected, given)
-      unless correct_argument_count?(all_variables, expected, given)
-        raise(
-          ArgumentError,
-          "wrong number of arguments (given #{given}, expected #{expected})"
-        )
-      end
+    def self.argument_guard(all_variables, arguments)
+      raise_argumnet_for(arguments) unless correct_argument_count?(all_variables, arguments)
     end
 
-    def self.correct_argument_count?(all_variables, expected, given)
+    def self.correct_argument_count?(all_variables, arguments)
+      expected, given = arguments
       final_variable = all_variables.last
       correct_argument_count = given == expected
       if final_variable.is_a? Hash
@@ -59,6 +68,11 @@ module Selfies
       variables.collect do |variable|
         variable.is_a?(Hash) ? variable.keys.first : variable
       end
+    end
+
+    def self.raise_argumnet_for(arguments)
+      expected, given = arguments
+      raise(ArgumentError, "wrong number of arguments (given #{given}, expected #{expected})")
     end
   end
 end
