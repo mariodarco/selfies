@@ -41,10 +41,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler
-  rake
-  rspec
-  rubocop
+  bundler (~> 1.16)
+  rake (~> 12.3)
+  rspec (~> 3.7)
+  rubocop (~> 0.55)
   selfies!
 
 RUBY VERSION
