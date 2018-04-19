@@ -1,6 +1,5 @@
 image: "ruby:2.5.1"
 
-# Cache gems in between builds
 cache:
   paths:
     - vendor/ruby
@@ -8,15 +7,11 @@ cache:
 before_script:
   - ruby -v
   - gem install bundler --no-ri --no-rdoc
-  - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
+  - bundle install -j $(nproc) --path vendor
 
 rspec:
   script:
     - rspec spec
-
-brakeman:
-  script:
-    - bundle exec brakeman -z -q
 
 rubocop:
   script:

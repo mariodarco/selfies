@@ -1,4 +1,6 @@
-# Open the Kernel modul to define methods for any class.
+# frozen_string_literal: true
+
+# Open the Kernel module to define methods for any class.
 module Kernel
   extend Gem::Deprecate
 

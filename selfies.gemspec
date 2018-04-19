@@ -1,6 +1,7 @@
-# coding: utf-8
+# frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
+
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'selfies/version'
 
@@ -8,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'selfies'
   spec.version       = Selfies::VERSION
   spec.authors       = ['Mario D’Arco']
-  spec.email         = ['mariodarco78@icloud.com']
+  spec.email         = ['mario.darco.78@gmail.com']
 
   spec.summary       = 'A collection of macros for quicker development.'
   spec.homepage      = 'https://github.com/mariodarco/selfies'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Selfies
-  VERSION = '1.2.3'.freeze
+  VERSION = '1.3.0'
 end

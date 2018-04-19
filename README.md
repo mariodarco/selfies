@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![Dependency Status](https://gemnasium.com/badges/github.com/mariodarco/selfies.svg)](https://gemnasium.com/github.com/mariodarco/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies/tree/master.svg?style=shield)](https://circleci.com/gh/mariodarco/selfies/tree/master) [![Maintainability](https://api.codeclimate.com/v1/badges/fe208e3abde2e2937ac7/maintainability)](https://codeclimate.com/github/mariodarco/selfies/maintainability)
+[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) ![Build Status](https://gitlab.com/mariodarco/selfies/badges/master/build.svg)
 
 # Selfies
 **A collection of macros for quicker development**
@@ -52,7 +52,7 @@ You get this:
 ```
 
 ## Disclaimer
-In this project you will likely read me using both ```initialize``` and ```initialise```. I'm Italian, I learnt to code from American books and now live in UK, to me they both make sense. As a rule of thumb, it's the ```ize``` form in code and ```ise``` form everywhere else. But might mix them so bear with me. Thanks!
+In this project you will likely read me using both ```initialize``` and ```initialise```. I'm Italian, I learnt to code from American books and now live in Ireland, to me they both make sense. As a rule of thumb, it's the ```ize``` form in code and ```ise``` form everywhere else. But might mix them so bear with me. Thanks!
 
 
 ## Installation
@@ -258,12 +258,12 @@ end
 ## Development
 
 Ruby version:
-```
-2.4.3
+```bash
+2.5.1
 ```
 
 Fork the project, clone the repository and bundle:
-```
+```bash
 >> git clone https://github.com/{your_account}/selfies.git
 >> cd selfies
 ```
