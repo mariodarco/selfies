@@ -190,11 +190,11 @@ class Search
     @limit = limit
   end
 
-  def self.execute!
+  def self.execute!(term, page, limit)
     new(term, page, limit).execute!
   end
 
-  def self.next
+  def self.next(term, page, limit)
     new(term, page, limit).next
   end
 
