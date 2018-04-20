@@ -2,6 +2,11 @@
 
 require 'bundler/setup'
 require 'selfies'
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter 'vendor'
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,4 +1,4 @@
-![Gem Version](https://badge.fury.io/rb/selfies.svg) ![Build Status](https://gitlab.com/mariodarco/selfies/badges/master/build.svg)
+![Gem Version](https://badge.fury.io/rb/selfies.svg) ![Build Status](https://gitlab.com/mariodarco/selfies/badges/master/build.svg) ![Coverage report](https://gitlab.com/mariodarco/selfies/badges/master/coverage.svg?job=coverage)
 
 # Selfies
 **A collection of macros for quicker development**
@@ -190,11 +190,11 @@ class Search
     @limit = limit
   end
 
-  def self.execute!
+  def self.execute!(term, page, limit)
     new(term, page, limit).execute!
   end
 
-  def self.next
+  def self.next(term, page, limit)
     new(term, page, limit).next
   end
 
