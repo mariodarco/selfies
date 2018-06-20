@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['mario.darco.78@gmail.com']
 
   spec.summary       = 'A collection of macros for quicker development.'
-  spec.homepage      = 'https://gitlab.com/mariodarco/selfies'
+  spec.homepage      = 'https://github.com/mariodarco/selfies'
   spec.license       = 'MIT'
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rubocop', '~> 0.55'
+  spec.add_development_dependency 'rubocop', '~> 0.57'
   spec.add_development_dependency 'simplecov', '~> 0.16'
 end

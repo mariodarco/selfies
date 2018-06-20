@@ -53,9 +53,9 @@ DEPENDENCIES
   bundler (~> 1.16)
   rake (~> 12.3)
   rspec (~> 3.7)
-  rubocop (~> 0.55)
+  rubocop (~> 0.57)
   selfies!
   simplecov (~> 0.16)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
