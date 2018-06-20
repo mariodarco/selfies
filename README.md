@@ -1,5 +1,3 @@
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://rubygems.org/gems/selfies) [![Build Status](https://gitlab.com/mariodarco/selfies/badges/master/build.svg)](https://gitlab.com/mariodarco/selfies/pipelines) [![Coverage report](https://gitlab.com/mariodarco/selfies/badges/master/coverage.svg?job=coverage)](http://mariodarco.gitlab.io/selfies/#_AllFiles)
-
 # Selfies
 **A collection of macros for quicker development**
 
