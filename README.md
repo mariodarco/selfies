@@ -1,7 +1,7 @@
 # Selfies
-**A collection of macros for quicker development**
+[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies.svg?style=svg)](https://circleci.com/gh/mariodarco/selfies)
 
-[![CircleCI](https://circleci.com/gh/mariodarco/selfies.svg?style=svg)](https://circleci.com/gh/mariodarco/selfies)
+**A collection of macros for quicker development**
 
 Another day at work, or on your personal project, and you need to create yet another class, which comes with the user boilerplate:
 - The initializer needs to be defined, with n parameters
