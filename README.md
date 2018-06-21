@@ -1,11 +1,13 @@
 # Selfies
 **A collection of macros for quicker development**
 
+[![CircleCI](https://circleci.com/gh/mariodarco/selfies.svg?style=svg)](https://circleci.com/gh/mariodarco/selfies)
+
 Another day at work, or on your personal project, and you need to create yet another class, which comes with the user boilerplate:
-- The initialiser needs to be defined, with n parameters
+- The initializer needs to be defined, with n parameters
 - Inside that, the usual ```@param = param```, multiplied for how many params you've got there
 - Then it's the turn of the attr_reader for those parameters
-- Then you are likely to need a class method that does nothing else than initialising the class and calling an instance method of the same name
+- Then you are likely to need a class method that does nothing else than initializing the class and calling an instance method of the same name
 - more?
 
 This gets boring with the years. So boring that someone might decide to write some macros to reduce the boilerplate.
@@ -48,10 +50,6 @@ You get this:
 >> Rectangle.perimeter(5, 3, 50)
 => 8.0
 ```
-
-## Disclaimer
-In this project you will likely read me using both ```initialize``` and ```initialise```. I'm Italian, I learnt to code from American books and now live in Ireland, to me they both make sense. As a rule of thumb, it's the ```ize``` form in code and ```ise``` form everywhere else. But might mix them so bear with me. Thanks!
-
 
 ## Installation
 
@@ -251,7 +249,7 @@ end
 - Write a command that can initialize a whole class, from creating the file to stub the initial setup;
 
 ***more?:***
-- If you also often write repetitive bolierplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
+- If you also often write repetitive boilerplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
 
 ## Development
 
@@ -273,7 +271,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitLab at https://github.com/mariodarco/selfies. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mariodarco/selfies. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
