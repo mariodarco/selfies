@@ -1,5 +1,5 @@
 # Selfies
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies.svg?style=svg)](https://circleci.com/gh/mariodarco/selfies)
+[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies.svg?style=svg)](https://circleci.com/gh/mariodarco/selfies) [![Maintainability](https://api.codeclimate.com/v1/badges/94e80322bd510cec589d/maintainability)](https://codeclimate.com/github/mariodarco/selfies/maintainability)
 
 **A collection of macros for quicker development**
 
