@@ -1,42 +1,46 @@
+---
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: '720c03bcc2eb17a5494a1e4bc18dfd0044b7a9819e0299f271278fd9a3da613f'
+    working_directory: ~/selfies
     docker:
-       - image: circleci/ruby:2.5.1-node-browsers
-
-    working_directory: ~/repo
-
+      - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          - v1-dependencies-
+      # Restore Cached Dependencies
+      - type: cache-restore
+        name: Restore bundle cache
+        key: selfies-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+      - run: bundle install --path vendor/bundle
+
+      # Cache Dependencies
+      - type: cache-save
+        name: Store bundle cache
+        key: selfies-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
 
       - run:
-          name: install dependencies
+          name: Setup Code Climate test-reporter
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
 
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
+      # Run the tests
       - run:
-          name: run tests
+          name: Run tests
           command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            ./cc-test-reporter before-build
+            bundle exec rspec
+            ./cc-test-reporter after-build --exit-code $?
 
-            bundle exec rspec --format progress \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+      # Enforce better practices
+      - run: bundle exec rubocop
 
       - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: coverage
