@@ -3,3 +3,5 @@
 /tmp/
 .DS_Store
 .rspec_status
+.ruby-version
+Gemfile.lock
