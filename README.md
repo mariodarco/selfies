@@ -255,7 +255,7 @@ end
 
 Ruby version:
 ```bash
-2.5.1
+>= 2.5
 ```
 
 Fork the project, clone the repository and bundle:
