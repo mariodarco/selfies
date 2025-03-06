@@ -27,7 +27,7 @@ module Selfies
 
     def self.get_value(variable_name, args, index)
       if variable_name == :args
-        args[index..-1]
+        args[index..]
       else
         args[index]
       end

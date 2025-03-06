@@ -1,12 +1,25 @@
+plugins:
+  - rubocop-rake
+
 AllCops:
   TargetRubyVersion: 2.7
+  NewCops: enable
   DisplayCopNames: true
+  SuggestExtensions: false
   Exclude:
     - bin/**/*
     - vendor/**/*
 
 Layout/LineLength:
   Max: 100
+
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - '**/*_spec.rb'
+
+Lint/EmptyClass:
+  Exclude:
+    - '**/*_spec.rb'
 
 Metrics/BlockLength:
   Exclude:

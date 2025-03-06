@@ -9,7 +9,7 @@ RSpec.describe Selfies do
   end
 
   it 'has a version number' do
-    expect(Selfies::VERSION).not_to be nil
+    expect(Selfies::VERSION).not_to be_nil
   end
 
   describe '.generate_initializer' do
