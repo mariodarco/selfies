@@ -24,6 +24,6 @@ Gem::Specification.new do |spec|
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
-  spec.required_ruby_version = '>= 2.7'
+  spec.required_ruby_version = '>= 3.4'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
