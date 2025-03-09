@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'selfies'
   spec.version       = Selfies::VERSION
   spec.authors       = ['Mario D’Arco']
-  spec.email         = ['mario.darco.78@gmail.com']
+  spec.email         = ['mario.darco.@hey.com']
 
   spec.summary       = 'A collection of macros for quicker development.'
   spec.homepage      = 'https://github.com/mariodarco/selfies'
