@@ -1,11 +1,11 @@
 # Selfies
-[![Gem Version](https://badge.fury.io/rb/selfies.svg)](https://badge.fury.io/rb/selfies) [![CircleCI](https://circleci.com/gh/mariodarco/selfies.svg?style=svg)](https://circleci.com/gh/mariodarco/selfies) [![Maintainability](https://api.codeclimate.com/v1/badges/94e80322bd510cec589d/maintainability)](https://codeclimate.com/github/mariodarco/selfies/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/94e80322bd510cec589d/test_coverage)](https://codeclimate.com/github/mariodarco/selfies/test_coverage)
 
 **A collection of macros for quicker development**
 
 Another day at work, or on your personal project, and you need to create yet another class, which comes with the user boilerplate:
+
 - The initializer needs to be defined, with n parameters
-- Inside that, the usual ```@param = param```, multiplied for how many params you've got there
+- Inside that, the usual `@param = param`, multiplied for how many params you've got there
 - Then it's the turn of the attr_reader for those parameters
 - Then you are likely to need a class method that does nothing else than initializing the class and calling an instance method of the same name
 - more?
@@ -15,11 +15,13 @@ This gets boring with the years. So boring that someone might decide to write so
 ## TL;DR
 
 You add this:
+
 ```ruby
 gem 'selfies'
 ```
 
 You write this:
+
 ```ruby
 class Rectangle
   attr_accessor_init :width, :height, scale: 100
@@ -42,6 +44,7 @@ end
 ```
 
 You get this:
+
 ```ruby
 >> Rectangle.area(8, 4)
 => 32.0
@@ -73,9 +76,10 @@ $ gem install selfies
 
 ## Usage
 
-***attr_reader_init***: can be used to automatically generate an initialiser for your class
+**_attr_reader_init_**: can be used to automatically generate an initialiser for your class
 
 This code:
+
 ```ruby
 class Search
   attr_reader_init :term, :page, :limit
@@ -83,6 +87,7 @@ end
 ```
 
 Is equivalent to:
+
 ```ruby
 class Search
   attr_reader :term, :page, :limit
@@ -98,6 +103,7 @@ end
 It is possible to specify a default for the last argument only:
 
 This code:
+
 ```ruby
 class Search
   attr_reader_init :term, :page, limit: 5
@@ -105,6 +111,7 @@ end
 ```
 
 Is equivalent to:
+
 ```ruby
 class Search
   attr_reader :term, :page, :limit
@@ -124,9 +131,10 @@ end
 ```
 
 You can use any variable name that would make for a valid Ruby variable;
-Only exception is ```:args``` which is used by ```selfies``` to define a splat operator:
+Only exception is `:args` which is used by `selfies` to define a splat operator:
 
 This code:
+
 ```ruby
 class Search
   attr_reader_init :term, :args
@@ -134,6 +142,7 @@ end
 ```
 
 Is equivalent to:
+
 ```ruby
 class Search
   attr_reader :term, :args
@@ -151,9 +160,10 @@ end
 => [2, 10]
 ```
 
-***attr_accessor_init***: same as ```attr_reader_init```, but generates accessors for the given attributes
+**_attr_accessor_init_**: same as `attr_reader_init`, but generates accessors for the given attributes
 
 This code:
+
 ```ruby
 class Search
   attr_accessor_init :term, :page, :limit
@@ -161,6 +171,7 @@ end
 ```
 
 Is equivalent to:
+
 ```ruby
 class Search
   attr_accessor :term, :page, :limit
@@ -173,9 +184,10 @@ class Search
 end
 ```
 
-***selfie***: can be used to automatically create a class method that reference to the instance method of the same class
+**_selfie_**: can be used to automatically create a class method that reference to the instance method of the same class
 
 This code:
+
 ```ruby
 class Search
   attr_reader :term, :page, :limit
@@ -205,6 +217,7 @@ end
 ```
 
 Can be written as:
+
 ```ruby
 class Search
   attr_reader_init :term, :page, :limit
@@ -222,6 +235,7 @@ end
 ```
 
 If preferred, more methods can be 'selfied' in one liner:
+
 ```ruby
 class Search
   ...
@@ -239,26 +253,32 @@ end
 
 ## Next Steps
 
-***attr_reader_init*** and ***attr_accessor_init:***
+**_attr_reader_init_** and **_attr_accessor_init:_**
+
 - Improve message when raising ArgumentError;
 
-***selfie:***
+**_selfie:_**
+
 - Find a suitable syntax that would allow to 'selfie' an instance method that has arguments;
 
-***command line:***
+**_command line:_**
+
 - Write a command that can initialize a whole class, from creating the file to stub the initial setup;
 
-***more?:***
+**_more?:_**
+
 - If you also often write repetitive boilerplate, and would like some code to get smaller, drop me a line and we might be able to add more macros.
 
 ## Development
 
 Ruby version:
+
 ```bash
->= 2.5
+>= 3.4
 ```
 
 Fork the project, clone the repository and bundle:
+
 ```bash
 >> git clone https://{your_fork}/selfies
 >> cd selfies
@@ -276,4 +296,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/mariod
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

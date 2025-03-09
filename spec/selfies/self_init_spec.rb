@@ -33,8 +33,8 @@ RSpec.describe Selfies::SelfInit do
       end
 
       it 'generates readers for the given attributes' do
-        expect(instance.type).to eql :large
-        expect(instance.colour).to eql :blue
+        expect(instance.type).to be :large
+        expect(instance.colour).to be :blue
       end
 
       context 'when accessor is set to true' do
@@ -46,8 +46,8 @@ RSpec.describe Selfies::SelfInit do
         end
 
         it 'generates accessors for the given attributes' do
-          expect(instance.type).to eql :medium
-          expect(instance.colour).to eql :red
+          expect(instance.type).to be :medium
+          expect(instance.colour).to be :red
         end
       end
 
@@ -76,15 +76,15 @@ RSpec.describe Selfies::SelfInit do
       end
 
       it 'generates readers for the given attributes' do
-        expect(instance.type).to eql :large
-        expect(instance.colour).to eql :red
+        expect(instance.type).to be :large
+        expect(instance.colour).to be :red
       end
 
       context 'and the object is then initialised without that parameter' do
         let(:instance) { Car.new(:large) }
 
         it 'assign default to the last attribute' do
-          expect(instance.colour).to eql :blue
+          expect(instance.colour).to be :blue
         end
       end
 
@@ -106,7 +106,7 @@ RSpec.describe Selfies::SelfInit do
           let(:instance) { Car.new(:large) }
 
           it 'does not raise error' do
-            expect { instance }.to_not raise_error
+            expect { instance }.not_to raise_error
           end
         end
       end
@@ -123,14 +123,14 @@ RSpec.describe Selfies::SelfInit do
       end
 
       it 'generates readers for the given attributes' do
-        expect(instance.colour).to eql :red
+        expect(instance.colour).to be :red
       end
 
       context 'and the object is then initialised without that parameter' do
         let(:instance) { Car.new }
 
         it 'assign default to the last attribute' do
-          expect(instance.colour).to eql :blue
+          expect(instance.colour).to be :blue
         end
       end
     end
@@ -146,7 +146,7 @@ RSpec.describe Selfies::SelfInit do
       end
 
       it 'generates readers for the given attributes' do
-        expect(instance.type).to eql :large
+        expect(instance.type).to be :large
         expect(instance.args).to eql %i[red expensive german]
       end
 
@@ -157,7 +157,7 @@ RSpec.describe Selfies::SelfInit do
           let(:instance) { Car.new(:large, :red, :expensive) }
 
           it 'does not raise error' do
-            expect { instance }.to_not raise_error
+            expect { instance }.not_to raise_error
           end
         end
 
